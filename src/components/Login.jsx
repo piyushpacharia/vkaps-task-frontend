@@ -17,9 +17,10 @@ export default function Login() {
             })
             if (response.data.success) { 
                 toast.success(response.data.message)
-                navigate("/")
                 localStorage.setItem("vkapsAuth",response.data.token)
                 localStorage.setItem("vkapsRole",response.data.role)
+                navigate("/")
+                window.location.reload()
                 
             }
         } catch (error) {
